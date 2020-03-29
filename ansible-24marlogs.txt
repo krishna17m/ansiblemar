@@ -1,0 +1,1230 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2020.03.24 21:47:39 =~=~=~=~=~=~=~=~=~=~=~=
+date
+Tue Mar 24 16:17:42 UTC 2020
+[Krishna@Krishna 0 ~]$ hostname
+lab.test.com
+..
+[Krishna@Krishna 0 ~]$ uname -mars
+Linux lab.test.com 3.10.0-693.el7.x86_64 #1 SMP Thu Jul 6 19:56:57 EDT 2017 x86_64 x86_64 x86_64 GNU/Linux
+[Krishna@Krishna 0 ~]$ who
+Krishna pts/0        2020-03-24 16:16 (203.192.241.69)
+[Krishna@Krishna 0 ~]$ whoami
+Krishna
+[Krishna@Krishna 0 ~]$ who -r
+         run-level 3  2020-03-24 16:15
+[Krishna@Krishna 0 ~]$ who -R
+who: invalid option -- 'R'
+Try 'who --help' for more information.
+[Krishna@Krishna 1 ~]$ su - deviops
+Password: 
+[Krishna@Krishna 130 ~]$ sudo su - devops
+Last login: Sat Mar 21 11:36:04 UTC 2020 on pts/0
+[devops@Krishna 0 ~]$ clear
+[devops@Krishna 0 ~]$ ansible all -m ping
+testfront | UNREACHABLE! => {
+    "changed": false, 
+    "msg": "Failed to connect to the host via ssh: no such identity: /home/devops/.ssh/02cckey.pem: No such file or directory\r\nPermission denied (publickey,gssapi-keyex,gssapi-with-mic).", 
+    "unreachable": true
+}
+appkrish2 | UNREACHABLE! => {
+    "changed": false, 
+    "msg": "Failed to connect to the host via ssh: no such identity: /home/devops/.ssh/02cckey.pem: No such file or directory\r\nPermission denied (publickey,gssapi-keyex,gssapi-with-mic).", 
+    "unreachable": true
+}
+appkrishdb | UNREACHABLE! => {
+    "changed": false, 
+    "msg": "Failed to connect to the host via ssh: no such identity: /home/devops/.ssh/02cckey.pem: No such file or directory\r\nPermission denied (publickey,gssapi-keyex,gssapi-with-mic).", 
+    "unreachable": true
+}
+appkrish | UNREACHABLE! => {
+    "changed": false, 
+    "msg": "Failed to connect to the host via ssh: no such identity: /home/devops/.ssh/02cckey.pem: No such file or directory\r\nPermission denied (publickey,gssapi-keyex,gssapi-with-mic).", 
+    "unreachable": true
+}
+support1 | UNREACHABLE! => {
+    "changed": false, 
+    "msg": "Failed to connect to the host via ssh: no such identity: /home/devops/.ssh/02cckey.pem: No such file or directory\r\nPermission denied (publickey,gssapi-keyex,gssapi-with-mic).", 
+    "unreachable": true
+}
+[devops@Krishna 4 ~]$ exit
+logout
+[Krishna@Krishna 4 ~]$ id
+uid=1673035809(Krishna) gid=1673035809(Krishna) groups=1673035809(Krishna),1673000010(partner-users),1673106211(opentlc-access) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+[Krishna@Krishna 0 ~]$ sudo -i
+[root@Krishna 0 ~]# clear
+[root@Krishna 0 ~]# ansible all -m ping
+testfront | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "ping": "pong"
+}
+appkrishdb | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "ping": "pong"
+}
+appkrish | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "ping": "pong"
+}
+appkrish2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "ping": "pong"
+}
+support1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "ping": "pong"
+}
+[root@Krishna 0 ~]# ansible all -m user -a "name=devops"
+appkrish2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "append": false, 
+    "changed": false, 
+    "comment": "", 
+    "group": 1001, 
+    "home": "/home/devops", 
+    "move_home": false, 
+    "name": "devops", 
+    "shell": "/bin/bash", 
+    "state": "present", 
+    "uid": 1001
+}
+testfront | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "append": false, 
+    "changed": false, 
+    "comment": "", 
+    "group": 1001, 
+    "home": "/home/devops", 
+    "move_home": false, 
+    "name": "devops", 
+    "shell": "/bin/bash", 
+    "state": "present", 
+    "uid": 1001
+}
+support1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "append": false, 
+    "changed": false, 
+    "comment": "", 
+    "group": 1001, 
+    "home": "/home/devops", 
+    "move_home": false, 
+    "name": "devops", 
+    "shell": "/bin/bash", 
+    "state": "present", 
+    "uid": 1001
+}
+appkrish | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "append": false, 
+    "changed": false, 
+    "comment": "", 
+    "group": 1001, 
+    "home": "/home/devops", 
+    "move_home": false, 
+    "name": "devops", 
+    "shell": "/bin/bash", 
+    "state": "present", 
+    "uid": 1001
+}
+appkrishdb | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "append": false, 
+    "changed": false, 
+    "comment": "", 
+    "group": 1001, 
+    "home": "/home/devops", 
+    "move_home": false, 
+    "name": "devops", 
+    "shell": "/bin/bash", 
+    "state": "present", 
+    "uid": 1001
+}
+[root@Krishna 0 ~]# cat /home/devops/.ssh/id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC0pPlqZ4xR2uw0+TUDkpCnjs4n/RuikVheJyjm3ksq02VuHCuE7inriGFFjQ9jI/iTxJuUUKghm1UdnpJCFi4ITB7GCHM0rY0VAvjKI3cQr3tcnjMbYxYFwkfNlq76UnSXSVfBtI1Y+mpLXBlFcrDmmp/XSpPbkxdH62DmP9FDKdupAnSN04HIaHPcwqgC9F6GYdo0Ro5Q8TfSaa0qa7t/+aQvd/46rJ23sjTrBk+sQEvXSIOXYoHGkV6+Tn9U6h4MeqcjUo2WlF+UJAt6cDiE/GV6L3jES3a1HBFLYZGEMmF4DhXkWOVvIvawg/wDYcACoSKqwB0zcJQjOith7se/ devops@lab.test.com
+[root@Krishna 0 ~]# ansible all -m authorized_key -a "user=devops state=present key='ssssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC0pPlqZ4xR2 uw0+TUDkpCnjs4n/RuikVheJyjm3ksq02VuHCuE7inriGFFjQ9jI/iTxJuUUKghm1UdnpJCFi4ITB7GCHM0rY0VAvjKI3cQr3tcnjMbYxYFwkfNlq76UnSXSVfBtI1Y+mpLXBl FcrDmmp/XSpPbkxdH62DmP9FDKdupAnSN04HIaHPcwqgC9F6GYdo0Ro5Q8TfSaa0qa7t/+aQvd/46rJ23sjTrBk+sQEvXSIOXYoHGkV6+Tn9U6h4MeqcjUo2WlF+UJAt6cDiE/ GV6L3jES3a1HBFLYZGEMmF4DhXkWOVvIvawg/wDYcACoSKqwB0zcJQjOith7se/ devops@lab.test.com'"
+appkrish2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "comment": null, 
+    "exclusive": false, 
+    "follow": false, 
+    "key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC0pPlqZ4xR2uw0+TUDkpCnjs4n/RuikVheJyjm3ksq02VuHCuE7inriGFFjQ9jI/iTxJuUUKghm1UdnpJCFi4ITB7GCHM0rY0VAvjKI3cQr3tcnjMbYxYFwkfNlq76UnSXSVfBtI1Y+mpLXBlFcrDmmp/XSpPbkxdH62DmP9FDKdupAnSN04HIaHPcwqgC9F6GYdo0Ro5Q8TfSaa0qa7t/+aQvd/46rJ23sjTrBk+sQEvXSIOXYoHGkV6+Tn9U6h4MeqcjUo2WlF+UJAt6cDiE/GV6L3jES3a1HBFLYZGEMmF4DhXkWOVvIvawg/wDYcACoSKqwB0zcJQjOith7se/ devops@lab.test.com", 
+    "key_options": null, 
+    "keyfile": "/home/devops/.ssh/authorized_keys", 
+    "manage_dir": true, 
+    "path": null, 
+    "state": "present", 
+    "user": "devops", 
+    "validate_certs": true
+}
+support1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "comment": null, 
+    "exclusive": false, 
+    "follow": false, 
+    "key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC0pPlqZ4xR2uw0+TUDkpCnjs4n/RuikVheJyjm3ksq02VuHCuE7inriGFFjQ9jI/iTxJuUUKghm1UdnpJCFi4ITB7GCHM0rY0VAvjKI3cQr3tcnjMbYxYFwkfNlq76UnSXSVfBtI1Y+mpLXBlFcrDmmp/XSpPbkxdH62DmP9FDKdupAnSN04HIaHPcwqgC9F6GYdo0Ro5Q8TfSaa0qa7t/+aQvd/46rJ23sjTrBk+sQEvXSIOXYoHGkV6+Tn9U6h4MeqcjUo2WlF+UJAt6cDiE/GV6L3jES3a1HBFLYZGEMmF4DhXkWOVvIvawg/wDYcACoSKqwB0zcJQjOith7se/ devops@lab.test.com", 
+    "key_options": null, 
+    "keyfile": "/home/devops/.ssh/authorized_keys", 
+    "manage_dir": true, 
+    "path": null, 
+    "state": "present", 
+    "user": "devops", 
+    "validate_certs": true
+}
+appkrishdb | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "comment": null, 
+    "exclusive": false, 
+    "follow": false, 
+    "key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC0pPlqZ4xR2uw0+TUDkpCnjs4n/RuikVheJyjm3ksq02VuHCuE7inriGFFjQ9jI/iTxJuUUKghm1UdnpJCFi4ITB7GCHM0rY0VAvjKI3cQr3tcnjMbYxYFwkfNlq76UnSXSVfBtI1Y+mpLXBlFcrDmmp/XSpPbkxdH62DmP9FDKdupAnSN04HIaHPcwqgC9F6GYdo0Ro5Q8TfSaa0qa7t/+aQvd/46rJ23sjTrBk+sQEvXSIOXYoHGkV6+Tn9U6h4MeqcjUo2WlF+UJAt6cDiE/GV6L3jES3a1HBFLYZGEMmF4DhXkWOVvIvawg/wDYcACoSKqwB0zcJQjOith7se/ devops@lab.test.com", 
+    "key_options": null, 
+    "keyfile": "/home/devops/.ssh/authorized_keys", 
+    "manage_dir": true, 
+    "path": null, 
+    "state": "present", 
+    "user": "devops", 
+    "validate_certs": true
+}
+testfront | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "comment": null, 
+    "exclusive": false, 
+    "follow": false, 
+    "key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC0pPlqZ4xR2uw0+TUDkpCnjs4n/RuikVheJyjm3ksq02VuHCuE7inriGFFjQ9jI/iTxJuUUKghm1UdnpJCFi4ITB7GCHM0rY0VAvjKI3cQr3tcnjMbYxYFwkfNlq76UnSXSVfBtI1Y+mpLXBlFcrDmmp/XSpPbkxdH62DmP9FDKdupAnSN04HIaHPcwqgC9F6GYdo0Ro5Q8TfSaa0qa7t/+aQvd/46rJ23sjTrBk+sQEvXSIOXYoHGkV6+Tn9U6h4MeqcjUo2WlF+UJAt6cDiE/GV6L3jES3a1HBFLYZGEMmF4DhXkWOVvIvawg/wDYcACoSKqwB0zcJQjOith7se/ devops@lab.test.com", 
+    "key_options": null, 
+    "keyfile": "/home/devops/.ssh/authorized_keys", 
+    "manage_dir": true, 
+    "path": null, 
+    "state": "present", 
+    "user": "devops", 
+    "validate_certs": true
+}
+appkrish | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "comment": null, 
+    "exclusive": false, 
+    "follow": false, 
+    "key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC0pPlqZ4xR2uw0+TUDkpCnjs4n/RuikVheJyjm3ksq02VuHCuE7inriGFFjQ9jI/iTxJuUUKghm1UdnpJCFi4ITB7GCHM0rY0VAvjKI3cQr3tcnjMbYxYFwkfNlq76UnSXSVfBtI1Y+mpLXBlFcrDmmp/XSpPbkxdH62DmP9FDKdupAnSN04HIaHPcwqgC9F6GYdo0Ro5Q8TfSaa0qa7t/+aQvd/46rJ23sjTrBk+sQEvXSIOXYoHGkV6+Tn9U6h4MeqcjUo2WlF+UJAt6cDiE/GV6L3jES3a1HBFLYZGEMmF4DhXkWOVvIvawg/wDYcACoSKqwB0zcJQjOith7se/ devops@lab.test.com", 
+    "key_options": null, 
+    "keyfile": "/home/devops/.ssh/authorized_keys", 
+    "manage_dir": true, 
+    "path": null, 
+    "state": "present", 
+    "user": "devops", 
+    "validate_certs": true
+}
+[root@Krishna 0 ~]# ansible all -m lineinfile -a "dest=/etc/sudoers state=present line='devops ALL=(ALL) NOPASSWD: ALL'"
+appkrishdb | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "backup": "", 
+    "changed": false, 
+    "msg": ""
+}
+testfront | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "backup": "", 
+    "changed": false, 
+    "msg": ""
+}
+appkrish | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "backup": "", 
+    "changed": false, 
+    "msg": ""
+}
+appkrish2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "backup": "", 
+    "changed": false, 
+    "msg": ""
+}
+support1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "backup": "", 
+    "changed": false, 
+    "msg": ""
+}
+[root@Krishna 0 ~]# xsu su -devops
+su: invalid option -- 'd'
+
+Usage:
+ su [options] [-] [USER [arg]...]
+
+Change the effective user id and group id to that of USER.
+A mere - implies -l.   If USER not given, assume root.
+
+Options:
+ -m, -p, --preserve-environment  do not reset environment variables
+ -g, --group <group>             specify the primary group
+ -G, --supp-group <group>        specify a supplemental group
+
+ -, -l, --login                  make the shell a login shell
+ -c, --command <command>         pass a single command to the shell with -c
+ --session-command <command>     pass a single command to the shell with -c
+                                 and do not create a new session
+ -f, --fast                      pass -f to the shell (for csh or tcsh)
+ -s, --shell <shell>             run shell if /etc/shells allows it
+
+ -h, --help     display this help and exit
+ -V, --version  output version information and exit
+
+For more details see su(1).
+[root@Krishna 1 ~]# sudo su - devops
+Last login: Tue Mar 24 16:19:37 UTC 2020 on pts/0
+[devops@Krishna 0 ~]$ id 
+uid=1001(devops) gid=1001(devops) groups=1001(devops) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+[devops@Krishna 0 ~]$ export GUID=`hostname | awk -F"." '{print $2}'`
+[devops@Krishna 0 ~]$ export GUID=`hostname | awk -F"." '{print $2}'`
+[devops@Krishna 0 ~]$ ssh appkrish..internal
+Last login: Sat Mar 21 11:40:42 2020 from 192.168.0.112
+Managed by Ansible
+[devops@appkrish ~]$ sudo -i
+[root@appkrish ~]# ssh appkrish..internal
+ssh: Could not resolve hostname appkrish..internal: Name or service not known
+[root@appkrish ~]# ansible frontends -m ping
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+[WARNING]: Could not match supplied host pattern, ignoring: frontends
+
+[root@appkrish ~]# exit
+logout
+[devops@appkrish ~]$ ls
+[devops@appkrish ~]$ exit
+logout
+Connection to appkrish.02cc.internal closed.
+[devops@Krishna 0 ~]$ id
+uid=1001(devops) gid=1001(devops) groups=1001(devops) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+[devops@Krishna 0 ~]$ clear
+[devops@Krishna 0 ~]$ cd ansible_implementation/
+[devops@Krishna 0 ~/ansible_implementation]$ ll
+total 12
+-rw-rw-r--. 1 devops devops  91 Mar 21 11:38 ansible.cfg
+-rw-rw-r--. 1 devops devops 106 Mar 21 11:40 hosts
+-rw-rw-r--. 1 devops devops  19 Mar 15 16:45 vimrc
+[devops@Krishna 0 ~/ansible_implementation]$ cat ansible.cfg 
+[defaults]
+inventory = /home/devops/ansible_implementation/hosts
+host_key_checking = False
+[devops@Krishna 0 ~/ansible_implementation]$ ansible testfront..internal -m ping -u devops --private-key=~/.ssh/id_rsa
+testfront.02cc.internal | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "ping": "pong"
+}
+[devops@Krishna 0 ~/ansible_implementation]$ ansible all -m ping -u devops --private-key=~/.ssh/id_rsa
+testfront.02cc.internal | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "ping": "pong"
+}
+appkrishdb.02cc.internal | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "ping": "pong"
+}
+appkrish2.02cc.internal | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "ping": "pong"
+}
+appkrish.02cc.internal | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "ping": "pong"
+}
+support1.02cc.internal | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "ping": "pong"
+}
+[devops@Krishna 0 ~/ansible_implementation]$ ansible localhost -m command -a 'id'
+localhost | CHANGED | rc=0 >>
+uid=1001(devops) gid=1001(devops) groups=1001(devops) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+[devops@Krishna 0 ~/ansible_implementation]$ ansible appkrish..internal -m command -a 'cat /etc/motd' -u devops --private-key=~/.ss h/id_rsa
+appkrish.02cc.internal | CHANGED | rc=0 >>
+Managed by Ansible
+[devops@Krishna 0 ~/ansible_implementation]$ ansible all -m copy -a 'content="Managed by Ansible\n" dest=/etc/motd' -u devops --privat e-key=~/.ssh/id_rsa
+appkrish.02cc.internal | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "checksum": "4458b979ede3c332f8f2128385df4ba305e58c27", 
+    "dest": "/etc/motd", 
+    "gid": 0, 
+    "group": "root", 
+    "mode": "0644", 
+    "owner": "root", 
+    "path": "/etc/motd", 
+    "secontext": "system_u:object_r:etc_t:s0", 
+    "size": 19, 
+    "state": "file", 
+    "uid": 0
+}
+appkrishdb.02cc.internal | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "checksum": "4458b979ede3c332f8f2128385df4ba305e58c27", 
+    "dest": "/etc/motd", 
+    "gid": 0, 
+    "group": "root", 
+    "mode": "0644", 
+    "owner": "root", 
+    "path": "/etc/motd", 
+    "secontext": "system_u:object_r:etc_t:s0", 
+    "size": 19, 
+    "state": "file", 
+    "uid": 0
+}
+appkrish2.02cc.internal | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "checksum": "4458b979ede3c332f8f2128385df4ba305e58c27", 
+    "dest": "/etc/motd", 
+    "gid": 0, 
+    "group": "root", 
+    "mode": "0644", 
+    "owner": "root", 
+    "path": "/etc/motd", 
+    "secontext": "system_u:object_r:etc_t:s0", 
+    "size": 19, 
+    "state": "file", 
+    "uid": 0
+}
+testfront.02cc.internal | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "checksum": "4458b979ede3c332f8f2128385df4ba305e58c27", 
+    "dest": "/etc/motd", 
+    "gid": 0, 
+    "group": "root", 
+    "mode": "0644", 
+    "owner": "root", 
+    "path": "/etc/motd", 
+    "secontext": "system_u:object_r:etc_t:s0", 
+    "size": 19, 
+    "state": "file", 
+    "uid": 0
+}
+support1.02cc.internal | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "checksum": "4458b979ede3c332f8f2128385df4ba305e58c27", 
+    "dest": "/etc/motd", 
+    "gid": 0, 
+    "group": "root", 
+    "mode": "0644", 
+    "owner": "root", 
+    "path": "/etc/motd", 
+    "secontext": "system_u:object_r:etc_t:s0", 
+    "size": 19, 
+    "state": "file", 
+    "uid": 0
+}
+[devops@Krishna 0 ~/ansible_implementation]$ ansible all -m copy -a 'content="Managed by Ansible\n" dest=/etc/motd' -u devops --privat e-key=~/.ssh/id_rsa --become
+appkrishdb.02cc.internal | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "checksum": "4458b979ede3c332f8f2128385df4ba305e58c27", 
+    "dest": "/etc/motd", 
+    "gid": 0, 
+    "group": "root", 
+    "mode": "0644", 
+    "owner": "root", 
+    "path": "/etc/motd", 
+    "secontext": "system_u:object_r:etc_t:s0", 
+    "size": 19, 
+    "state": "file", 
+    "uid": 0
+}
+appkrish2.02cc.internal | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "checksum": "4458b979ede3c332f8f2128385df4ba305e58c27", 
+    "dest": "/etc/motd", 
+    "gid": 0, 
+    "group": "root", 
+    "mode": "0644", 
+    "owner": "root", 
+    "path": "/etc/motd", 
+    "secontext": "system_u:object_r:etc_t:s0", 
+    "size": 19, 
+    "state": "file", 
+    "uid": 0
+}
+testfront.02cc.internal | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "checksum": "4458b979ede3c332f8f2128385df4ba305e58c27", 
+    "dest": "/etc/motd", 
+    "gid": 0, 
+    "group": "root", 
+    "mode": "0644", 
+    "owner": "root", 
+    "path": "/etc/motd", 
+    "secontext": "system_u:object_r:etc_t:s0", 
+    "size": 19, 
+    "state": "file", 
+    "uid": 0
+}
+appkrish.02cc.internal | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "checksum": "4458b979ede3c332f8f2128385df4ba305e58c27", 
+    "dest": "/etc/motd", 
+    "gid": 0, 
+    "group": "root", 
+    "mode": "0644", 
+    "owner": "root", 
+    "path": "/etc/motd", 
+    "secontext": "system_u:object_r:etc_t:s0", 
+    "size": 19, 
+    "state": "file", 
+    "uid": 0
+}
+support1.02cc.internal | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "checksum": "4458b979ede3c332f8f2128385df4ba305e58c27", 
+    "dest": "/etc/motd", 
+    "gid": 0, 
+    "group": "root", 
+    "mode": "0644", 
+    "owner": "root", 
+    "path": "/etc/motd", 
+    "secontext": "system_u:object_r:etc_t:s0", 
+    "size": 19, 
+    "state": "file", 
+    "uid": 0
+}
+[devops@Krishna 0 ~/ansible_implementation]$ ansible all -m command -a 'cat /etc/motd' -u devops --private-key=~/.ssh/id_rsa --become
+appkrishdb.02cc.internal | CHANGED | rc=0 >>
+Managed by Ansible
+appkrish2.02cc.internal | CHANGED | rc=0 >>
+Managed by Ansible
+appkrish.02cc.internal | CHANGED | rc=0 >>
+Managed by Ansible
+support1.02cc.internal | CHANGED | rc=0 >>
+Managed by Ansible
+testfront.02cc.internal | CHANGED | rc=0 >>
+Managed by Ansible
+[devops@Krishna 0 ~/ansible_implementation]$ 
+[devops@Krishna 0 ~/ansible_implementation]$ 
+[devops@Krishna 0 ~/ansible_implementation]$ 
+[devops@Krishna 0 ~/ansible_implementation]$ export GUID=`hostname | awk -F"." '{print $2}'`
+[devops@Krishna 0 ~/ansible_implementation]$ cd ~/ansible_implementation
+[devops@Krishna 0 ~/ansible_implementation]$ ll
+total 12
+-rw-rw-r--. 1 devops devops  91 Mar 21 11:38 ansible.cfg
+-rw-rw-r--. 1 devops devops 106 Mar 21 11:40 hosts
+-rw-rw-r--. 1 devops devops  19 Mar 15 16:45 vimrc
+[devops@Krishna 0 ~/ansible_implementation]$ cat << EOF >> /home/devops/ansible_implementation/hosts
+> [lb]
+> testfront..internal
+> 
+> [webservers]
+> appkrish..internal
+> appkrish2..internal
+> 
+> [db]
+> appkrishdb..internal
+> 
+> EOF
+[devops@Krishna 0 ~/ansible_implementation]$ ll
+total 12
+-rw-rw-r--. 1 devops devops  91 Mar 21 11:38 ansible.cfg
+-rw-rw-r--. 1 devops devops 215 Mar 24 16:41 hosts
+-rw-rw-r--. 1 devops devops  19 Mar 15 16:45 vimrc
+[devops@Krishna 0 ~/ansible_implementation]$ cat hosts
+testfront.02cc.internal
+appkrishdb.02cc.internal
+appkrish.02cc.internal
+support1.02cc.internal
+appkrish2.02cc.internal
+[lb]
+testfront.02cc.internal
+
+[webservers]
+appkrish.02cc.internal
+appkrish2.02cc.internal
+
+[db]
+appkrishdb.02cc.internal
+
+[devops@Krishna 0 ~/ansible_implementation]$ cat << EOF > check_webservers.yml
+> - hosts: webservers
+>   tasks:
+>   - name: Check connectivity
+>     ping:
+> EOF
+[devops@Krishna 0 ~/ansible_implementation]$ ansible-playbook --syntax-check check_webservers.yml -u devops --private-key=~/.ssh/id_rs a
+
+playbook: check_webservers.yml
+[devops@Krishna 0 ~/ansible_implementation]$ ansible-playbook --syntax-check check_webservers.yml -u devops --private-key=~/.ssh/id_rs a
+
+playbook: check_webservers.yml
+[devops@Krishna 0 ~/ansible_implementation]$ ansible-playbook --check check_webservers.yml -u devops --private-key=~/.ssh/id_rsa
+
+PLAY [webservers] ********************************************************************************************************************
+
+TASK [Gathering Facts] ***************************************************************************************************************
+ok: [appkrish.02cc.internal]
+ok: [appkrish2.02cc.internal]
+
+TASK [Check connectivity] ************************************************************************************************************
+ok: [appkrish.02cc.internal]
+ok: [appkrish2.02cc.internal]
+
+PLAY RECAP ***************************************************************************************************************************
+appkrish.02cc.internal         : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+appkrish2.02cc.internal         : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+[devops@Krishna 0 ~/ansible_implementation]$ ansible-playbook check_webservers.yml -u devops --private-key=~/.ssh/id_rsa
+
+PLAY [webservers] ********************************************************************************************************************
+
+TASK [Gathering Facts] ***************************************************************************************************************
+ok: [appkrish2.02cc.internal]
+ok: [appkrish.02cc.internal]
+
+TASK [Check connectivity] ************************************************************************************************************
+ok: [appkrish2.02cc.internal]
+ok: [appkrish.02cc.internal]
+
+PLAY RECAP ***************************************************************************************************************************
+appkrish.02cc.internal         : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+appkrish2.02cc.internal         : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+[devops@Krishna 0 ~/ansible_implementation]$ cat << EOF >> /home/devops/ansible_implementation/hosts
+> [webservers:vars]
+> ansible_user = devops
+> ansible_ssh_private_key_file = /home/devops/.ssh/id_rsa
+> EOF
+[devops@Krishna 0 ~/ansible_implementation]$ cat hosts
+testfront.02cc.internal
+appkrishdb.02cc.internal
+appkrish.02cc.internal
+support1.02cc.internal
+appkrish2.02cc.internal
+[lb]
+testfront.02cc.internal
+
+[webservers]
+appkrish.02cc.internal
+appkrish2.02cc.internal
+
+[db]
+appkrishdb.02cc.internal
+
+[webservers:vars]
+ansible_user = devops
+ansible_ssh_private_key_file = /home/devops/.ssh/id_rsa
+[devops@Krishna 0 ~/ansible_implementation]$ ansible-playbook check_webservers.yml
+
+PLAY [webservers] ********************************************************************************************************************
+
+TASK [Gathering Facts] ***************************************************************************************************************
+ok: [appkrish2.02cc.internal]
+ok: [appkrish.02cc.internal]
+
+TASK [Check connectivity] ************************************************************************************************************
+ok: [appkrish2.02cc.internal]
+ok: [appkrish.02cc.internal]
+
+PLAY RECAP ***************************************************************************************************************************
+appkrish.02cc.internal         : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+appkrish2.02cc.internal         : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+[devops@Krishna 0 ~/ansible_implementation]$ cat << EOF > /home/devops/ansible_implementation/deploy_apache.yml
+> - hosts: webservers
+>   become: yes
+>   tasks:
+>   - name: Install httpd package
+>     yum:
+>       name: httpd
+>       state: latest
+>   - name: Enable and start httpd service
+>     service:
+>        name: httpd
+>        state: started
+>        enabled: yes
+>   - name: Create index.html file for hosting static content
+>     copy:
+>       content: "Hoorraaayyy!!! My first playbook ran successfully"
+>       dest: /var/www/html/index.html
+> EOF
+[devops@Krishna 0 ~/ansible_implementation]$ cat << EOF > /home/devops/ansible_implementation/deploy_apache.yml
+> - hosts: webservers
+>   become: yes
+>   tasks:
+>   - name: Install httpd package
+>     yum:
+>       name: httpd
+>       state: latest
+>   - name: Enable and start httpd service
+>     service:
+>        name: httpd
+>        state: started
+>        enabled: yes
+>   - name: Create index.html file for hosting static content
+>     copy:
+>       content: "Hoorraaayyy!!! My first playbook ran successfully"
+>       dest: /var/www/html/index.html
+> EOF^C
+[devops@Krishna 130 ~/ansible_implementation]$ ansible-playbook deploy_apache.yml
+
+PLAY [webservers] ********************************************************************************************************************
+
+TASK [Gathering Facts] ***************************************************************************************************************
+ok: [appkrish2.02cc.internal]
+ok: [appkrish.02cc.internal]
+
+TASK [Install httpd package] *********************************************************************************************************
+changed: [appkrish2.02cc.internal]
+changed: [appkrish.02cc.internal]
+
+TASK [Enable and start httpd service] ************************************************************************************************
+changed: [appkrish.02cc.internal]
+changed: [appkrish2.02cc.internal]
+
+TASK [Create index.html file for hosting static content] *****************************************************************************
+changed: [appkrish2.02cc.internal]
+changed: [appkrish.02cc.internal]
+
+PLAY RECAP ***************************************************************************************************************************
+appkrish.02cc.internal         : ok=4    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+appkrish2.02cc.internal         : ok=4    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+[devops@Krishna 0 ~/ansible_implementation]$ ansible-playbook deploy_apache.yml
+
+PLAY [webservers] ********************************************************************************************************************
+
+TASK [Gathering Facts] ***************************************************************************************************************
+ok: [appkrish.02cc.internal]
+ok: [appkrish2.02cc.internal]
+
+TASK [Install httpd package] *********************************************************************************************************
+ok: [appkrish2.02cc.internal]
+ok: [appkrish.02cc.internal]
+
+TASK [Enable and start httpd service] ************************************************************************************************
+ok: [appkrish2.02cc.internal]
+ok: [appkrish.02cc.internal]
+
+TASK [Create index.html file for hosting static content] *****************************************************************************
+ok: [appkrish2.02cc.internal]
+ok: [appkrish.02cc.internal]
+
+PLAY RECAP ***************************************************************************************************************************
+appkrish.02cc.internal         : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+appkrish2.02cc.internal         : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+[devops@Krishna 0 ~/ansible_implementation]$ curl http://appkrish..internal
+Hoorraaayyy!!! My first playbook ran successfully[devops@Krishna 0 ~/ansible_implementation]$ curl http://appkrish2..internal
+Hoorraaayyy!!! My first playbook ran successfully[devops@Krishna 0 ~/ansible_implementation]$ cat << EOF > variable_test.yml
+> - name: Install Apache and start the service
+>   hosts: webservers
+>   become: yes
+>   vars:
+>     web_pkg: httpd
+>     firewall_pkg: firewalld
+>     web_service: httpd
+>     firewall_service: firewalld
+>     python_pkg: python-httplib2
+>     rule: http
+>   tasks:
+>     - name: Install the required packages
+>       yum:
+>         name:
+>           - "{{ web_pkg  }}"
+>           - "{{ firewall_pkg }}"
+>           - "{{ python_pkg }}"
+>         state: latest
+>     - name: Start and enable the {{ firewall_service }} service
+>       service:
+>         name: "{{ firewall_service }}"
+>         enabled: true
+>         state: started
+> 
+>     - name: Start and enable the {{ web_service }} service
+>       service:
+>         name: "{{ web_service }}"
+>         enabled: true
+>         state: started
+>     - name: Create web content to be served
+>       copy:
+>         content: "Example web content"
+>         dest: /var/www/html/index.html
+>     - name: Open the port for {{ rule }}
+>       firewalld:
+>         service: "{{ rule }}"
+>         permanent: true
+>         immediate: true
+>         state: enabled
+> 
+> EOF
+[devops@Krishna 0 ~/ansible_implementation]$ ansible-playbook --syntax-check variable_test.yml
+
+playbook: variable_test.yml
+[devops@Krishna 0 ~/ansible_implementation]$ export GUID=`hostname | awk -F"." '{print $2}'`
+[devops@Krishna 0 ~/ansible_implementation]$ cat << EOF > webserver_smoketest.yml
+> - name: Verify the Apache service
+>   hosts: localhost
+>   tasks:
+>     - name: Ensure the webserver is reachable
+>       uri:
+>         url: http://appkrish..internal
+>         status_code: 200
+> EOF
+[devops@Krishna 0 ~/ansible_implementation]$ cat << EOF > webserver_smoketest.yml
+> - name: Verify the Apache service
+>   hosts: localhost
+>   tasks:
+>     - name: Ensure the webserver is reachable
+>       uri:
+>         url: http://appkrish..internal
+>         status_code: 200
+> EOF
+[devops@Krishna 0 ~/ansible_implementation]$ ansible-playbook variable_test.yml
+
+PLAY [Install Apache and start the service] ******************************************************************************************
+
+TASK [Gathering Facts] ***************************************************************************************************************
+ok: [appkrish2.02cc.internal]
+ok: [appkrish.02cc.internal]
+
+TASK [Install the required packages] *************************************************************************************************
+changed: [appkrish.02cc.internal]
+changed: [appkrish2.02cc.internal]
+
+TASK [Start and enable the firewalld service] ****************************************************************************************
+changed: [appkrish2.02cc.internal]
+changed: [appkrish.02cc.internal]
+
+TASK [Start and enable the httpd service] ********************************************************************************************
+ok: [appkrish2.02cc.internal]
+ok: [appkrish.02cc.internal]
+
+TASK [Create web content to be served] ***********************************************************************************************
+changed: [appkrish.02cc.internal]
+changed: [appkrish2.02cc.internal]
+
+TASK [Open the port for http] ********************************************************************************************************
+changed: [appkrish.02cc.internal]
+changed: [appkrish2.02cc.internal]
+
+PLAY RECAP ***************************************************************************************************************************
+appkrish.02cc.internal         : ok=6    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+appkrish2.02cc.internal         : ok=6    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+[devops@Krishna 0 ~/ansible_implementation]$ ansible-playbook webserver_smoketest.yml
+
+PLAY [Verify the Apache service] *****************************************************************************************************
+
+TASK [Gathering Facts] ***************************************************************************************************************
+ok: [localhost]
+
+TASK [Ensure the webserver is reachable] *********************************************************************************************
+ok: [localhost]
+
+PLAY RECAP ***************************************************************************************************************************
+localhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+[devops@Krishna 0 ~/ansible_implementation]$ mkdir tasks
+[devops@Krishna 0 ~/ansible_implementation]$ cd tasks/
+[devops@Krishna 0 ~/ansible_implementation/tasks]$ cat << EOF > environment.yml
+>   - name: Install the {{ package }} package
+>     yum:
+>       name: "{{ package }}"
+>       state: latest
+>   - name: Start the {{ service }} service
+>     service:
+>       name: "{{ service }}"
+>       state: "{{ svc_state }}"
+> EOF
+[devops@Krishna 0 ~/ansible_implementation/tasks]$ cd ..
+[devops@Krishna 0 ~/ansible_implementation]$ ll
+total 28
+-rw-rw-r--. 1 devops devops   91 Mar 21 11:38 ansible.cfg
+-rw-rw-r--. 1 devops devops   68 Mar 24 16:41 check_webservers.yml
+-rw-rw-r--. 1 devops devops  411 Mar 24 16:44 deploy_apache.yml
+-rw-rw-r--. 1 devops devops  311 Mar 24 16:43 hosts
+drwxrwxr-x. 2 devops devops   29 Mar 24 16:50 tasks/
+-rw-rw-r--. 1 devops devops 1038 Mar 24 16:46 variable_test.yml
+-rw-rw-r--. 1 devops devops   19 Mar 15 16:45 vimrc
+-rw-rw-r--. 1 devops devops  183 Mar 24 16:47 webserver_smoketest.yml
+[devops@Krishna 0 ~/ansible_implementation]$ mkdir vars
+[devops@Krishna 0 ~/ansible_implementation]$ cd vars/
+[devops@Krishna 0 ~/ansible_implementation/vars]$ cat << EOF > variables.yml
+> firewall_pkg: firewalld
+> EOF
+[devops@Krishna 0 ~/ansible_implementation/vars]$ cd ..
+[devops@Krishna 0 ~/ansible_implementation]$ cat << EOF > main_playbook.yml
+> - hosts: webservers
+>   become: yes
+>   vars:
+>     rule: http
+>   tasks:
+>     - name: Include the variables from the YAML file
+>       include_vars: vars/variables.yml
+> 
+>     - name: Include the environment file and set the variables
+>       import_tasks: tasks/environment.yml
+>       vars:
+>         package: httpd
+>         service: httpd
+>         svc_state: started
+> 
+>     - name: Install the firewall
+>       yum:
+>         name: "{{ firewall_pkg }}"
+>         state: latest
+> 
+>     - name: Start the firewall
+>       service:
+>         name: firewalld
+>         state: started
+>         enabled: true
+> 
+>     - name: Open the port for {{ rule }}
+>       firewalld:
+>         service: "{{ rule }}"
+>         immediate: true
+>         permanent: true
+>         state: enabled
+> 
+>     - name: Create index.html
+>       copy:
+>         content: "{{ ansible_fqdn }} has been customized using Ansible on the {{ ansible_date_time.date }}\n"
+>         dest: /var/www/html/index.html
+> EOF
+[devops@Krishna 0 ~/ansible_implementation]$ cat << EOF > main_playbook.yml
+> - hosts: webservers
+>   become: yes
+>   vars:
+>     rule: http
+>   tasks:
+>     - name: Include the variables from the YAML file
+>       include_vars: vars/variables.yml
+> 
+>     - name: Include the environment file and set the variables
+>       import_tasks: tasks/environment.yml
+>       vars:
+>         package: httpd
+>         service: httpd
+>         svc_state: started
+> 
+>     - name: Install the firewall
+>       yum:
+>         name: "{{ firewall_pkg }}"
+>         state: latest
+> 
+>     - name: Start the firewall
+>       service:
+>         name: firewalld
+>         state: started
+>         enabled: true
+> 
+>     - name: Open the port for {{ rule }}
+>       firewalld:
+>         service: "{{ rule }}"
+>         immediate: true
+>         permanent: true
+>         state: enabled
+> 
+>     - name: Create index.html
+>       copy:
+>         content: "{{ ansible_fqdn }} has been customized using Ansible on the {{ ansible_date_time.date }}\n"
+>         dest: /var/www/html/index.html
+> EOF
+[devops@Krishna 0 ~/ansible_implementation]$ ansible-playbook --syntax-check main_playbook.yml
+
+playbook: main_playbook.yml
+[devops@Krishna 0 ~/ansible_implementation]$  ansible-playbook main_playbook.yml
+
+PLAY [webservers] ********************************************************************************************************************
+
+TASK [Gathering Facts] ***************************************************************************************************************
+ok: [appkrish2.02cc.internal]
+ok: [appkrish.02cc.internal]
+
+TASK [Include the variables from the YAML file] **************************************************************************************
+ok: [appkrish.02cc.internal]
+ok: [appkrish2.02cc.internal]
+
+TASK [Install the httpd package] *****************************************************************************************************
+ok: [appkrish2.02cc.internal]
+ok: [appkrish.02cc.internal]
+
+TASK [Start the httpd service] *******************************************************************************************************
+ok: [appkrish2.02cc.internal]
+ok: [appkrish.02cc.internal]
+
+TASK [Install the firewall] **********************************************************************************************************
+ok: [appkrish.02cc.internal]
+ok: [appkrish2.02cc.internal]
+
+TASK [Start the firewall] ************************************************************************************************************
+ok: [appkrish.02cc.internal]
+ok: [appkrish2.02cc.internal]
+
+TASK [Open the port for http] ********************************************************************************************************
+ok: [appkrish2.02cc.internal]
+ok: [appkrish.02cc.internal]
+
+TASK [Create index.html] *************************************************************************************************************
+changed: [appkrish2.02cc.internal]
+changed: [appkrish.02cc.internal]
+
+PLAY RECAP ***************************************************************************************************************************
+appkrish.02cc.internal         : ok=8    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+appkrish2.02cc.internal         : ok=8    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+[devops@Krishna 0 ~/ansible_implementation]$ export GUID=`hostname | awk -F"." '{print $2}'`
+[devops@Krishna 0 ~/ansible_implementation]$ curl http://appkrish..internal
+ip-192-168-0-214.ec2.internal has been customized using Ansible on the 2020-03-24
+[devops@Krishna 0 ~/ansible_implementation]$  curl http://appkrish2..internal
+ip-192-168-0-93.ec2.internal has been customized using Ansible on the 2020-03-24
+[devops@Krishna 0 ~/ansible_implementation]$ mkdir roles/
+[devops@Krishna 0 ~/ansible_implementation]$ cd roles/
+[devops@Krishna 0 ~/ansible_implementation/roles]$ ansible-galaxy init roles/app-tier
+- Role roles/app-tier was created successfully
+[devops@Krishna 0 ~/ansible_implementation/roles]$ cat << EOF > roles/app-tier/tasks/main.yml
+> ---
+> # tasks file for roles/app-tier
+> # Installation of packages based on inventory groupss
+> - name: Install Firewalld
+>   yum:
+>    name: firewalld
+>    state: latest
+> 
+> - name: Start firewalld service
+>   service:
+>    name: firewalld
+>    state: started
+>    enabled: true
+> 
+> - name: Install httpd
+>   yum:
+>    name: "{{ item }}"
+>    state: latest
+>   with_items:
+>    - "{{ httpd_pkg }}"
+> 
+> - name: Start httpd
+>   service:
+>    name: "{{ httpd_srv }}"
+>    enabled: true
+>    state: started
+> 
+> 
+> - name: Copy vhost template file
+>   template:
+>    src: vhost.conf.j2
+>    dest: /etc/httpd/conf.d/vhost.conf
+>   notify:
+>    - restart_httpd
+> 
+> - name: Create Document Root
+>   file:
+>    path: /var/www/vhost/
+>    state: directory
+> 
+> - name: Copy index.j2 file
+>   template:
+>    src: index.j2
+>    dest: /var/www/vhost/index.php
+>    mode: 0644
+>    owner: apache
+>    group: apache
+> 
+> - name: Open httpd port
+>   firewalld:
+>    service: http
+>    state: enabled
+>    immediate: true
+>    permanent: true
+> 
+> - name: enable selinux boolean
+>   seboolean:
+>    name: "{{ item }}"
+>    state: yes
+>    persistent: yes
+>   loop:
+>    - httpd_can_network_connect_db
+>    - httpd_can_network_connect
+> 
+> EOF
+[devops@Krishna 0 ~/ansible_implementation/roles]$ cat << EOF > roles/app-tier/handlers/main.yml
+> ---
+> # handlers file for roles/app-tier
+> 
+> - name: restart_httpd
+>   service:
+>    name: "{{ httpd_srv }}"
+>    state: restarted
+> 
+> EOF
+[devops@Krishna 0 ~/ansible_implementation/roles]$ cat << EOF > roles/app-tier/vars/main.yml
+> ---
+> # vars file for roles/app-tier
+> 
+> db:
+>  user: root
+>  database: userdb
+>  password: redhat
+> httpd_pkg:
+>  - httpd
+>  - php
+>  - php-mysql
+> httpd_srv: httpd
+> db_srv: mariadb
+> EOF
+[devops@Krishna 0 ~/ansible_implementation/roles]$ cp ~/roles-setup-files/index.j2 roles/app-tier/templates/
+cp: cannot stat /home/devops/roles-setup-files/index.j2: No such file or directory
+[devops@Krishna 1 ~/ansible_implementation/roles]$ cd ..
+[devops@Krishna 0 ~/ansible_implementation]$ cp ~/roles-setup-files/index.j2 roles/app-tier/templates/
+cp: cannot stat /home/devops/roles-setup-files/index.j2: No such file or directory
+[devops@Krishna 1 ~/ansible_implementation]$ cd roles/
+[devops@Krishna 0 ~/ansible_implementation/roles]$ ll
+total 0
+drwxrwxr-x. 3 devops devops 22 Mar 24 16:55 roles/
+[devops@Krishna 0 ~/ansible_implementation/roles]$ cd ,,
+-bash: cd: ,,: No such file or directory
+[devops@Krishna 1 ~/ansible_implementation/roles]$ cd ..
+[devops@Krishna 0 ~/ansible_implementation]$ cp ~/roles-setup-files/index.j2 roles/app-tier/templates/
+cp: cannot stat /home/devops/roles-setup-files/index.j2: No such file or directory
+[devops@Krishna 1 ~/ansible_implementation]$ cat << EOF > roles/app-tier/vars/main.yml
+> ---
+> # vars file for roles/app-tier
+> 
+> db:
+>  user: root
+>  database: userdb
+>  password: redhat
+> httpd_pkg:
+>  - httpd
+>  - php
+>  - php-mysql
+> httpd_srv: httpd
+> db_srv: mariadb
+> EOF
+-bash: roles/app-tier/vars/main.yml: No such file or directory
+[devops@Krishna 1 ~/ansible_implementation]$ pwd
+/home/devops/ansible_implementation
+[devops@Krishna 0 ~/ansible_implementation]$ cd roles/
+[devops@Krishna 0 ~/ansible_implementation/roles]$ cat << EOF > roles/app-tier/vars/main.yml
+> ---
+> # vars file for roles/app-tier
+> 
+> db:
+>  user: root
+>  database: userdb
+>  password: redhat
+> httpd_pkg:
+>  - httpd
+>  - php
+>  - php-mysql
+> httpd_srv: httpd
+> db_srv: mariadb
+> EOF
+[devops@Krishna 0 ~/ansible_implementation/roles]$ ll
+total 0
+drwxrwxr-x. 3 devops devops 22 Mar 24 16:55 roles/
+[devops@Krishna 0 ~/ansible_implementation/roles]$ cd ..
+[devops@Krishna 0 ~/ansible_implementation]$ cat << EOF > roles/app-tier/vars/main.yml
+> ---
+> # vars file for roles/app-tier
+> 
+> db:
+>  user: root
+>  database: userdb
+>  password: redhat
+> httpd_pkg:
+>  - httpd
+>  - php
+>  - php-mysql
+> httpd_srv: httpd
+> db_srv: mariadb
+> EOF
+-bash: roles/app-tier/vars/main.yml: No such file or directory
+[devops@Krishna 1 ~/ansible_implementation]$ 
